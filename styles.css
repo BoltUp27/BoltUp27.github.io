@@ -1,0 +1,16 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(white,gray);
+    color: black;
+    text-align:center;
+  }
+  h1 {
+    color: gray;
+    font-size:60px;
+  }
+  img{
+    display: block;
+    border-radius: 100%;
+    margin:auto;
+  }
