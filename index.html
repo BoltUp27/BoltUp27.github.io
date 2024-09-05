@@ -11,12 +11,17 @@
 <body>
   <header>
     <h1>Gavin's Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="learn-to-code-1.html">Learn to Code 1</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section>
     <audio controls>
       <source src="GavinPalacio.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
     </audio>
 
     <img src="Gavin.jpg" alt="Gavin's Photo" width="200" height="400">
@@ -29,24 +34,27 @@
     </ul>
   </section>
 
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="your-server-endpoint" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 Gavin's Portfolio. All rights reserved.</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 
 </html>
-
-<section id="contact">
-  <h2>Contact Me</h2>
-  <form action="your-server-endpoint" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-
-    <button type="submit">Send</button>
-  </form>
-</section>
-
