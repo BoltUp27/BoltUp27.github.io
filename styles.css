@@ -1,135 +1,27 @@
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
-}
-
+/* General Body Styling */
 body {
-  background-image: radial-gradient(white, gray);
+  background-image: radial-gradient(white, gray); /* Gradient background */
   color: black;
   text-align: center;
-  font-family: Arial, sans-serif; /* Add a default font for better readability */
-}
-
-h1 {
-  color: gray;
-  font-size: 60px;
-  margin: 20px 0; /* Add some space above and below the heading */
-}
-
-img {
-  display: block;
-  border-radius: 50%; /* Correct value for circular images */
-  margin: 0 auto; /* Center the image horizontally */
-}
-
-section {
-  padding: 20px; /* Add some padding inside the section */
-}
-
-ul {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-}
-
-li {
-  margin: 10px 0; /* Add some space between list items */
-}
-
-/* Reset some default styles */
-body, h1, h2, p, ul {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-}
-
-/* Basic styles */
-body {
   padding: 20px;
-  background-color: #f4f4f4;
 }
 
+/* Header Styling */
 header {
-  text-align: center;
   background-color: #333;
   color: #fff;
   padding: 10px 0;
+  text-align: center;
 }
 
-h1 {
-  margin-bottom: 10px;
-}
-
-section {
+header h1 {
+  color: gray;
+  font-size: 60px;
   margin: 20px 0;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
 }
 
-img {
-  display: block;
-  margin: 0 auto;
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Contact form styles */
-#contact {
-  margin-top: 40px; /* Add more space above the contact form */
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px; /* Set a maximum width for better readability */
-  margin: 0 auto; /* Center the form */
-}
-
-label {
-  margin: 15px 0 5px;
-  font-weight: bold;
-}
-
-input, textarea {
-  padding: 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-textarea {
-  height: 150px; /* Make the textarea taller */
-  resize: vertical; /* Allow vertical resizing only */
-}
-
-button {
-  padding: 15px;
-  background-color: #0066cc;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #005bb5;
-}
-/* Navigation styles */
+/* Navigation Styling */
 nav {
   background-color: #333;
   color: #fff;
@@ -157,3 +49,47 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+
+/* Section Styling */
+section {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 800px; /* Limit the width for better readability */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading Styling */
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* List Styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+/* Image Styling */
+img {
+  display: block;
+  margin: 20px auto; /* Center images */
+  border-radius: 8px; /* Rounded corners */
+  max-width: 100%; /* Responsive images */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Video Styling */
+video {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%; /* Responsive video */
+  border-radius: 8px; /
