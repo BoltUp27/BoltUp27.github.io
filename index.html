@@ -35,6 +35,24 @@
     </ul>
   </section>
 
+  <!-- New World Clocks Section -->
+  <section id="world-clocks">
+    <h2>Current Times Around the World</h2>
+    <div class="clock" id="new-york">
+      <h3>New York</h3>
+      <p class="time"></p>
+    </div>
+    <div class="clock" id="london">
+      <h3>London</h3>
+      <p class="time"></p>
+    </div>
+    <div class="clock" id="tokyo">
+      <h3>Tokyo</h3>
+      <p class="time"></p>
+    </div>
+    <!-- Add more clocks as needed -->
+  </section>
+
   <section id="contact">
     <h2>Contact Me</h2>
     <form action="your-server-endpoint" method="post">
@@ -43,6 +61,20 @@
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="type">Inquiry Type:</label>
+      <select id="type" name="type" required>
+        <option value="">Select an option</option>
+        <option value="general">General Inquiry</option>
+        <option value="feedback">Feedback</option>
+        <option value="support">Support</option>
+      </select>
 
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="4" required></textarea>
