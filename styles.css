@@ -8,6 +8,7 @@ body {
   text-align: center;
   font-family: 'Quicksand', sans-serif; /* Using Quicksand for body text */
   padding: 20px;
+  margin: 0; /* Ensure no default margin is applied */
 }
 
 /* Header Styling */
@@ -116,7 +117,7 @@ video {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 200px;
+  width: 250px; /* Increased width to accommodate weather info */
 }
 
 .clock h3 {
@@ -125,12 +126,13 @@ video {
   color: #00796b;
 }
 
-.clock .time {
-  font-size: 18px;
+.clock .time, .clock .weather {
+  font-size: 16px; /* Adjusted font size to fit both date/time and weather */
   color: #333;
+  line-height: 1.5; /* Added line height for better spacing */
 }
 
-/* Expanded Contact Form */
+/* Contact Form Styling */
 form {
   display: flex;
   flex-direction: column;
@@ -171,37 +173,3 @@ button {
 button:hover {
   background-color: #00796b;
 }
-
-// Function to update the time and date
-function updateClocks() {
-  const clocks = {
-    'new-york': 'America/New_York',
-    'london': 'Europe/London',
-    'tokyo': 'Asia/Tokyo',
-    'sydney': 'Australia/Sydney',
-    'cape-town': 'Africa/Johannesburg'
-    // Add more time zones as needed
-  };
-
-  for (const [id, timeZone] of Object.entries(clocks)) {
-    const options = {
-      timeZone,
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
-    const dateTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
-    document.querySelector(`#${id} .time`).textContent = dateTime;
-  }
-}
-
-// Update clocks every second
-setInterval(updateClocks, 1000);
-
-// Initial update
-updateClocks();
