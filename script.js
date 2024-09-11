@@ -1,4 +1,4 @@
-// Function to update the time
+// Function to update the time and date
 function updateClocks() {
   const clocks = {
     'new-york': 'America/New_York',
@@ -10,15 +10,19 @@ function updateClocks() {
   };
 
   for (const [id, timeZone] of Object.entries(clocks)) {
-    const timeOptions = {
+    const options = {
       timeZone,
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false
     };
-    const time = new Date().toLocaleTimeString('en-US', timeOptions);
-    document.querySelector(`#${id} .time`).textContent = time;
+    const dateTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
+    document.querySelector(`#${id} .time`).textContent = dateTime;
   }
 }
 
