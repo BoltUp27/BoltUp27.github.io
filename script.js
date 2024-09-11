@@ -34,11 +34,18 @@ async function updateClocksAndWeather() {
     // Fetch weather data
     try {
       const response = await fetch(weatherUrls[id]);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
+      
+      // Log the raw weather data
+      console.log(`Weather data for ${id}:`, data);
+      
       const weather = `${data.weather[0].description}, ${Math.round(data.main.temp)}°C`;
       document.querySelector(`#${id} .weather`).textContent = weather;
     } catch (error) {
-      console.error('Error fetching weather data:', error);
+      console.error(`Error fetching weather data for ${id}:`, error);
       document.querySelector(`#${id} .weather`).textContent = 'Weather data not available';
     }
   }
@@ -49,4 +56,3 @@ setInterval(updateClocksAndWeather, 1000);
 
 // Initial update
 updateClocksAndWeather();
-
