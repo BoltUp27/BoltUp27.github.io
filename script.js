@@ -1,5 +1,5 @@
-// Function to update the time and weather
-async function updateClocksAndWeather() {
+// Function to update the time
+function updateClocks() {
   const clocks = {
     'new-york': 'America/New_York',
     'london': 'Europe/London',
@@ -7,17 +7,6 @@ async function updateClocksAndWeather() {
     'sydney': 'Australia/Sydney',
     'cape-town': 'Africa/Johannesburg'
     // Add more time zones as needed
-  };
-
-  // Replace with your OpenWeatherMap API key
-  const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
-  const weatherUrls = {
-    'new-york': `https://api.openweathermap.org/data/2.5/weather?q=New%20York,US&appid=${apiKey}&units=metric`,
-    'london': `https://api.openweathermap.org/data/2.5/weather?q=London,GB&appid=${apiKey}&units=metric`,
-    'tokyo': `https://api.openweathermap.org/data/2.5/weather?q=Tokyo,JP&appid=${apiKey}&units=metric`,
-    'sydney': `https://api.openweathermap.org/data/2.5/weather?q=Sydney,AU&appid=${apiKey}&units=metric`,
-    'cape-town': `https://api.openweathermap.org/data/2.5/weather?q=Cape%20Town,ZA&appid=${apiKey}&units=metric`
-    // Add more weather URLs as needed
   };
 
   for (const [id, timeZone] of Object.entries(clocks)) {
@@ -30,29 +19,11 @@ async function updateClocksAndWeather() {
     };
     const time = new Date().toLocaleTimeString('en-US', timeOptions);
     document.querySelector(`#${id} .time`).textContent = time;
-
-    // Fetch weather data
-    try {
-      const response = await fetch(weatherUrls[id]);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      
-      // Log the raw weather data
-      console.log(`Weather data for ${id}:`, data);
-      
-      const weather = `${data.weather[0].description}, ${Math.round(data.main.temp)}°C`;
-      document.querySelector(`#${id} .weather`).textContent = weather;
-    } catch (error) {
-      console.error(`Error fetching weather data for ${id}:`, error);
-      document.querySelector(`#${id} .weather`).textContent = 'Weather data not available';
-    }
   }
 }
 
-// Update clocks and weather every second
-setInterval(updateClocksAndWeather, 1000);
+// Update clocks every second
+setInterval(updateClocks, 1000);
 
 // Initial update
-updateClocksAndWeather();
+updateClocks();
