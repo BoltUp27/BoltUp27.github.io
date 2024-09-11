@@ -99,14 +99,13 @@ video {
   max-width: 100%; /* Responsive video */
   border-radius: 8px;
 }
-/* Existing styles */
 
 /* World Clock Section */
 #world-clocks {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
   margin: 20px 0;
 }
 
@@ -131,8 +130,10 @@ video {
   color: #333;
 }
 
-
-/* Existing styles */
+.clock .weather {
+  font-size: 16px;
+  color: #555;
+}
 
 /* Expanded Contact Form */
 form {
@@ -152,14 +153,6 @@ input, select, textarea {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
-}
-
-input[type="tel"] {
-  /* Specific styling for phone number input */
-}
-
-select {
-  /* Optional: Adjust width for select element */
 }
 
 button {
