@@ -127,7 +127,7 @@ video {
 }
 
 .clock .time, .clock .weather {
-  font-size: 16px; /* Adjusted font size to fit both date/time and weather */
+  font-size: 16px; /* Ensure clear visibility for both date/time and weather */
   color: #333;
   line-height: 1.5; /* Added line height for better spacing */
 }
