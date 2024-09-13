@@ -117,7 +117,7 @@ video {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 250px; /* Increased width to accommodate weather info */
+  width: 300px; /* Increased width to accommodate date and time */
 }
 
 .clock h3 {
@@ -126,8 +126,15 @@ video {
   color: #00796b;
 }
 
-.clock .time, .clock .weather {
-  font-size: 16px; /* Adjusted font size to fit both date/time and weather */
+.clock .date {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.clock .time {
+  font-size: 16px; /* Adjusted font size to fit both date and time */
   color: #333;
   line-height: 1.5; /* Added line height for better spacing */
 }
