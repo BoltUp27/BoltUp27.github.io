@@ -124,6 +124,11 @@ video {
   border-radius: 5px;
   padding: 15px;
   background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.event:hover {
+  background-color: #e0f2f1; /* Light green on hover */
 }
 
 .event h4 {
@@ -169,26 +174,23 @@ button:hover {
   background-color: #00796b;
 }
 
-/* Existing CSS rules */
-
 /* Team Logos Styling */
 .team-logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .team-logo {
-    width: 50px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .team-logos span {
-    font-size: 18px;
-    color: #00796b;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.team-logo {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 5px;
+}
+
+.team-logos span {
+  font-size: 18px;
+  color: #00796b;
+  font-weight: bold;
+}
