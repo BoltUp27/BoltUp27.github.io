@@ -10,19 +10,27 @@ function updateClocks() {
   };
 
   for (const [id, timeZone] of Object.entries(clocks)) {
-    const options = {
+    const optionsDate = {
       timeZone,
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric',
+      day: 'numeric'
+    };
+
+    const optionsTime = {
+      timeZone,
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false
     };
-    const dateTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
-    document.querySelector(`#${id} .time`).textContent = dateTime;
+
+    const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
+    const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
+
+    document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
+    document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
   }
 }
 
