@@ -55,52 +55,13 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Section Styling */
-section {
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff; /* White background for contrast */
-  border-radius: 5px;
-  max-width: 800px; /* Limit the width for better readability */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-/* Heading Styling */
-h2 {
-  border-bottom: 2px solid #009688; /* Teal color to match header */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  color: #00796b; /* Darker teal for headings */
-  font-family: 'Pacifico', cursive; /* Tropical font for headings */
-}
-
-/* List Styling */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin: 10px 0;
-}
-
-/* Image Styling */
-img {
-  display: block;
-  margin: 20px auto; /* Center images */
-  border-radius: 8px; /* Rounded corners */
-  max-width: 100%; /* Responsive images */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Video Styling */
-video {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%; /* Responsive video */
-  border-radius: 8px;
-}
-
+/* Additional styles specific to Learn to Code 1 or any other pages can go here */
 /* World Clock Section */
 #world-clocks {
   display: flex;
@@ -111,41 +72,35 @@ video {
 }
 
 .clock {
-  border: 2px solid #009688;
+  border: 2px solid #009688; /* Teal border */
   border-radius: 8px;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background for contrast */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   text-align: center;
-  width: 300px; /* Increased width to accommodate date and time */
+  width: 200px; /* Fixed width for uniformity */
 }
 
 .clock h3 {
   margin: 0;
   font-size: 24px;
-  color: #00796b;
-}
-
-.clock .date {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.clock .time {
-  font-size: 16px; /* Adjusted font size to fit both date and time */
-  color: #333;
-  line-height: 1.5; /* Added line height for better spacing */
+  color: #00796b; /* Darker teal for headings */
 }
 
 /* Contact Form Styling */
+#contact {
+  margin: 20px auto;
+  max-width: 600px; /* Limit the width for better readability */
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 label {
@@ -159,14 +114,6 @@ input, select, textarea {
   font-size: 16px;
 }
 
-input[type="tel"] {
-  /* Specific styling for phone number input */
-}
-
-select {
-  /* Optional: Adjust width for select element */
-}
-
 button {
   background-color: #009688;
   color: #fff;
@@ -178,5 +125,5 @@ button {
 }
 
 button:hover {
-  background-color: #00796b;
+  background-color: #00796b; /* Darker teal on hover */
 }
