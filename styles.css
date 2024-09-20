@@ -55,13 +55,26 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Section Styling */
+section {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  margin: 20px 0;
+}
+
+/* Centering the Image */
+img {
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
 /* Footer Styling */
 footer {
   margin-top: 20px;
   font-size: 14px;
 }
 
-/* Additional styles specific to Learn to Code 1 or any other pages can go here */
 /* World Clock Section */
 #world-clocks {
   display: flex;
@@ -127,3 +140,5 @@ button {
 button:hover {
   background-color: #00796b; /* Darker teal on hover */
 }
+
+/* Additional styles specific to Learn to Code 1 or any other pages can go here */
