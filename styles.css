@@ -16,7 +16,6 @@ header {
   background-color: #009688; /* Teal color for a tropical touch */
   color: #fff;
   padding: 10px 0;
-  text-align: center;
 }
 
 header h1 {
@@ -67,6 +66,31 @@ section {
 img {
   display: block;
   margin: 0 auto; /* Center the image */
+}
+
+/* Button Styling */
+#locateButton {
+  background-color: #009688; /* Match the theme */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px; /* Add some space above */
+}
+
+#locateButton:hover {
+  background-color: #00796b; /* Darker teal on hover */
+}
+
+/* Map Container */
+#map {
+  height: 450px; /* Set height */
+  width: 100%; /* Full width */
+  margin-top: 20px; /* Space above the map */
+  border: 2px solid #009688; /* Optional: border for aesthetics */
+  border-radius: 5px; /* Rounded corners */
 }
 
 /* Footer Styling */
