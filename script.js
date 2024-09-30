@@ -39,3 +39,51 @@ setInterval(updateClocks, 60000);
 
 // Initial update
 updateClocks();
+
+// Function to initialize the map and geolocation
+function initMap() {
+  // Default map center
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 8,
+    center: { lat: -34.397, lng: 150.644 }, // Default coordinates
+  });
+
+  // Geolocation
+  document.getElementById("locateButton").addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          // Update map center
+          map.setCenter(pos);
+
+          // Add marker for user location
+          new google.maps.Marker({
+            position: pos,
+            map: map,
+          });
+        },
+        function() {
+          handleLocationError(true, map.getCenter());
+        }
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, map.getCenter());
+    }
+  });
+}
+
+// Handle geolocation errors
+function handleLocationError(browserHasGeolocation, pos) {
+  alert(browserHasGeolocation
+    ? "Error: The Geolocation service failed."
+    : "Error: Your browser doesn't support geolocation.");
+}
+
+// Initialize the map when the window loads
+window.onload = initMap;
