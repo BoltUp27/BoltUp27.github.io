@@ -3,31 +3,31 @@
 
 /* General Body Styling */
 body {
-  background-image: radial-gradient(circle, #e0f7fa, #b2ebf2); /* Light blue gradient for a tropical feel */
+  background-image: radial-gradient(circle, #e0f7fa, #b2ebf2);
   color: #333;
   text-align: center;
-  font-family: 'Quicksand', sans-serif; /* Using Quicksand for body text */
+  font-family: 'Quicksand', sans-serif;
   padding: 20px;
-  margin: 0; /* Ensure no default margin is applied */
+  margin: 0;
 }
 
 /* Header Styling */
 header {
-  background-color: #009688; /* Teal color for a tropical touch */
+  background-color: #009688;
   color: #fff;
   padding: 10px 0;
 }
 
 header h1 {
-  color: #ffeb3b; /* Yellow color to evoke the sun */
-  font-family: 'Pacifico', cursive; /* Using Pacifico for header */
+  color: #ffeb3b;
+  font-family: 'Pacifico', cursive;
   font-size: 60px;
   margin: 20px 0;
 }
 
 /* Navigation Styling */
 nav {
-  background-color: #00796b; /* Slightly darker teal for contrast */
+  background-color: #00796b;
   color: #fff;
   padding: 10px 0;
 }
@@ -57,103 +57,13 @@ nav ul li a:hover {
 /* Section Styling */
 section {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center items horizontally */
+  flex-direction: column;
+  align-items: center;
   margin: 20px 0;
-}
-
-/* Centering the Image */
-img {
-  display: block;
-  margin: 0 auto; /* Center the image */
 }
 
 /* Button Styling */
 #locateButton {
-  background-color: #009688; /* Match the theme */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px; /* Add some space above */
-}
-
-#locateButton:hover {
-  background-color: #00796b; /* Darker teal on hover */
-}
-
-/* Map Container */
-#map {
-  height: 450px; /* Set height */
-  width: 100%; /* Full width */
-  margin-top: 20px; /* Space above the map */
-  border: 2px solid #009688; /* Optional: border for aesthetics */
-  border-radius: 5px; /* Rounded corners */
-}
-
-/* World Clock Section */
-#world-clocks {
-  display: flex; /* Use flexbox */
-  justify-content: space-around; /* Distribute clocks evenly */
-  flex-wrap: wrap; /* Allow wrapping to the next line if needed */
-  gap: 20px; /* Space between clocks */
-  margin: 20px 0;
-  max-height: 400px; /* Limit height */
-  overflow-y: hidden; /* Hide overflow vertically */
-}
-
-.clock {
-  border: 2px solid #009688; /* Teal border */
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #ffffff; /* White background for contrast */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-align: center;
-  width: 150px; /* Adjusted width for a better fit */
-}
-
-.clock h3 {
-  margin: 0;
-  font-size: 24px;
-  color: #00796b; /* Darker teal for headings */
-}
-
-/* Footer Styling */
-footer {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-/* Contact Form Styling */
-#contact {
-  margin: 20px auto;
-  max-width: 600px; /* Limit the width for better readability */
-  padding: 20px;
-  background-color: #ffffff; /* White background */
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-label {
-  font-weight: bold;
-}
-
-input, select, textarea {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-button {
   background-color: #009688;
   color: #fff;
   padding: 10px 20px;
@@ -161,10 +71,50 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 10px;
 }
 
-button:hover {
-  background-color: #00796b; /* Darker teal on hover */
+#locateButton:hover {
+  background-color: #00796b;
 }
 
-/* Additional styles specific to Learn to Code 1 or any other pages can go here */
+/* Map Container */
+#map {
+  height: 450px;
+  width: 100%;
+  margin-top: 20px;
+  border: 2px solid #009688;
+  border-radius: 5px;
+}
+
+/* World Clock Section */
+#world-clocks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping of clocks */
+  gap: 20px; /* Space between clocks */
+  margin: 20px 0;
+}
+
+/* Individual Clock Styling */
+.clock {
+  border: 2px solid #009688;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 150px;
+}
+
+.clock h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #00796b;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
