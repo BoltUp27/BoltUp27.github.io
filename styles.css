@@ -93,12 +93,6 @@ img {
   border-radius: 5px; /* Rounded corners */
 }
 
-/* Footer Styling */
-footer {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
 /* World Clock Section */
 #world-clocks {
   display: flex;
@@ -106,6 +100,10 @@ footer {
   flex-wrap: wrap;
   gap: 20px;
   margin: 20px 0;
+  max-height: 400px; /* Limit the height of the clocks section */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  border: 2px solid #009688; /* Optional: border for aesthetics */
+  padding: 10px; /* Optional: padding for aesthetics */
 }
 
 .clock {
@@ -115,13 +113,19 @@ footer {
   background-color: #ffffff; /* White background for contrast */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   text-align: center;
-  width: 200px; /* Fixed width for uniformity */
+  width: 150px; /* Adjusted width for a better fit */
 }
 
 .clock h3 {
   margin: 0;
   font-size: 24px;
   color: #00796b; /* Darker teal for headings */
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 /* Contact Form Styling */
