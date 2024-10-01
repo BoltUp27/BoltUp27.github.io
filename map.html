@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Location Map</title>
   <link href="styles.css" rel="stylesheet" type="text/css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> <!-- Replace YOUR_API_KEY -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> <!-- Replace YOUR_API_KEY -->
 </head>
 
 <body>
@@ -34,14 +34,13 @@
   </footer>
 
   <script>
+    // Function to initialize the map and geolocation
     function initMap() {
-      // Default map center
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 8,
         center: { lat: -34.397, lng: 150.644 }, // Default coordinates
       });
 
-      // Geolocation
       document.getElementById("locateButton").addEventListener("click", function() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -71,13 +70,12 @@
       });
     }
 
+    // Handle geolocation errors
     function handleLocationError(browserHasGeolocation, pos) {
       alert(browserHasGeolocation
         ? "Error: The Geolocation service failed."
         : "Error: Your browser doesn't support geolocation.");
     }
-
-    window.onload = initMap;
   </script>
 </body>
 

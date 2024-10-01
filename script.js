@@ -6,7 +6,6 @@ function updateClocks() {
     'tokyo': 'Asia/Tokyo',
     'sydney': 'Australia/Sydney',
     'cape-town': 'Africa/Johannesburg'
-    // Add more time zones as needed
   };
 
   for (const [id, timeZone] of Object.entries(clocks)) {
@@ -29,13 +28,20 @@ function updateClocks() {
     const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
     const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
 
-    document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
-    document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
+    const dateElement = document.querySelector(`#${id} .date`);
+    const timeElement = document.querySelector(`#${id} .time`);
+
+    if (dateElement && timeElement) {
+      dateElement.textContent = `Date: ${date}`;
+      timeElement.textContent = `Time: ${time}`;
+    } else {
+      console.error(`Elements for ${id} not found.`);
+    }
   }
 }
 
-// Update clocks every minute
-setInterval(updateClocks, 60000);
+// Update clocks every second for real-time updates
+setInterval(updateClocks, 1000);
 
 // Initial update
 updateClocks();
