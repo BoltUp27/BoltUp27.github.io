@@ -95,15 +95,13 @@ img {
 
 /* World Clock Section */
 #world-clocks {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping if the screen is too small */
-  gap: 20px; /* Spacing between clocks */
+  display: flex; /* Use flexbox */
+  justify-content: space-around; /* Distribute clocks evenly */
+  flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+  gap: 20px; /* Space between clocks */
   margin: 20px 0;
-  max-height: 400px; /* Limit the height of the clocks section */
-  overflow-y: auto; /* Enable scrolling if content overflows */
-  border: 2px solid #009688; /* Optional: border for aesthetics */
-  padding: 10px; /* Optional: padding for aesthetics */
+  max-height: 400px; /* Limit height */
+  overflow-y: hidden; /* Hide overflow vertically */
 }
 
 .clock {
