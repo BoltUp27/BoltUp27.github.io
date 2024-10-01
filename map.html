@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Location Map</title>
   <link href="styles.css" rel="stylesheet" type="text/css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> <!-- Replace YOUR_API_KEY -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> <!-- Replace YOUR_API_KEY -->
 </head>
-
 <body>
   <header>
     <h1>My Location Map</h1>
@@ -27,6 +25,60 @@
     <h2>Find My Location</h2>
     <button id="locateButton">Get My Location</button>
     <div id="map" style="height: 450px; width: 100%; margin-top: 20px;"></div>
+
+    <h2>US Time Zones</h2>
+    <section id="world-clocks">
+      <div id="new-york" class="clock">
+        <h3>New York</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="chicago" class="clock">
+        <h3>Chicago</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="denver" class="clock">
+        <h3>Denver</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="los-angeles" class="clock">
+        <h3>Los Angeles</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="miami" class="clock">
+        <h3>Miami</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="houston" class="clock">
+        <h3>Houston</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="seattle" class="clock">
+        <h3>Seattle</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="boston" class="clock">
+        <h3>Boston</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="san-francisco" class="clock">
+        <h3>San Francisco</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+      <div id="phoenix" class="clock">
+        <h3>Phoenix</h3>
+        <div class="date"></div>
+        <div class="time"></div>
+      </div>
+    </section>
   </section>
 
   <footer>
@@ -34,6 +86,52 @@
   </footer>
 
   <script>
+    // Function to update the time and date for various time zones
+    function updateClocks() {
+      const clocks = {
+        'new-york': 'America/New_York',
+        'chicago': 'America/Chicago',
+        'denver': 'America/Denver',
+        'los-angeles': 'America/Los_Angeles',
+        'miami': 'America/New_York', // Miami shares the same time zone as New York
+        'houston': 'America/Chicago', // Houston shares the same time zone as Chicago
+        'seattle': 'America/Los_Angeles', // Seattle shares the same time zone as Los Angeles
+        'boston': 'America/New_York', // Boston shares the same time zone as New York
+        'san-francisco': 'America/Los_Angeles', // San Francisco shares the same time zone as Los Angeles
+        'phoenix': 'America/Phoenix' // Phoenix does not observe Daylight Saving Time
+      };
+
+      for (const [id, timeZone] of Object.entries(clocks)) {
+        const optionsDate = {
+          timeZone,
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        };
+
+        const optionsTime = {
+          timeZone,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+
+        const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
+        const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
+
+        document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
+        document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
+      }
+    }
+
+    // Update clocks every minute
+    setInterval(updateClocks, 60000);
+
+    // Initial update
+    updateClocks();
+
     // Function to initialize the map and geolocation
     function initMap() {
       const map = new google.maps.Map(document.getElementById("map"), {
@@ -50,7 +148,7 @@
                 lng: position.coords.longitude,
               };
 
-              // Update map center
+              // Update map center to user's location
               map.setCenter(pos);
 
               // Add marker for user location
@@ -72,11 +170,19 @@
 
     // Handle geolocation errors
     function handleLocationError(browserHasGeolocation, pos) {
-      alert(browserHasGeolocation
+      const errorMessage = browserHasGeolocation
         ? "Error: The Geolocation service failed."
-        : "Error: Your browser doesn't support geolocation.");
+        : "Error: Your browser doesn't support geolocation.";
+      console.error(errorMessage);
+      alert(errorMessage);
     }
+
+    // Initialize the map when the window loads
+    window.onload = function() {
+      initMap();
+      updateClocks(); // Initial clock update
+      setInterval(updateClocks, 60000); // Update clocks every minute
+    };
   </script>
 </body>
-
 </html>

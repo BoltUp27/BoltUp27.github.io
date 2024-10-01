@@ -1,4 +1,4 @@
-// Function to update the time and date
+// Function to update the time and date for various time zones
 function updateClocks() {
   const clocks = {
     'new-york': 'America/New_York',
@@ -28,33 +28,24 @@ function updateClocks() {
     const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
     const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
 
-    const dateElement = document.querySelector(`#${id} .date`);
-    const timeElement = document.querySelector(`#${id} .time`);
-
-    if (dateElement && timeElement) {
-      dateElement.textContent = `Date: ${date}`;
-      timeElement.textContent = `Time: ${time}`;
-    } else {
-      console.error(`Elements for ${id} not found.`);
-    }
+    document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
+    document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
   }
 }
 
-// Update clocks every second for real-time updates
-setInterval(updateClocks, 1000);
+// Update clocks every minute
+setInterval(updateClocks, 60000);
 
 // Initial update
 updateClocks();
 
 // Function to initialize the map and geolocation
 function initMap() {
-  // Default map center
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 8,
     center: { lat: -34.397, lng: 150.644 }, // Default coordinates
   });
 
-  // Geolocation
   document.getElementById("locateButton").addEventListener("click", function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -64,7 +55,7 @@ function initMap() {
             lng: position.coords.longitude,
           };
 
-          // Update map center
+          // Update map center to user's location
           map.setCenter(pos);
 
           // Add marker for user location
@@ -86,10 +77,16 @@ function initMap() {
 
 // Handle geolocation errors
 function handleLocationError(browserHasGeolocation, pos) {
-  alert(browserHasGeolocation
+  const errorMessage = browserHasGeolocation
     ? "Error: The Geolocation service failed."
-    : "Error: Your browser doesn't support geolocation.");
+    : "Error: Your browser doesn't support geolocation.";
+  console.error(errorMessage);
+  alert(errorMessage);
 }
 
 // Initialize the map when the window loads
-window.onload = initMap;
+window.onload = function() {
+  initMap();
+  updateClocks(); // Initial clock update
+  setInterval(updateClocks, 60000); // Update clocks every minute
+};
