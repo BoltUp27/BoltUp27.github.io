@@ -97,8 +97,8 @@ img {
 #world-clocks {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+  gap: 20px; /* Spacing between clocks */
   margin: 20px 0;
   max-height: 400px; /* Limit the height of the clocks section */
   overflow-y: auto; /* Enable scrolling if content overflows */

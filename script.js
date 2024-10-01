@@ -41,42 +41,40 @@ updateClocks();
 
 // Function to initialize the map and geolocation
 function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
-    center: { lat: -34.397, lng: 150.644 }, // Default coordinates
-  });
+  const map = L.map('map').setView([51.505, -0.09], 13); // Default center and zoom level
+
+  // Add a tile layer to the map
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
 
   document.getElementById("locateButton").addEventListener("click", function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
+          const pos = [position.coords.latitude, position.coords.longitude];
 
           // Update map center to user's location
-          map.setCenter(pos);
+          map.setView(pos, 13);
 
           // Add marker for user location
-          new google.maps.Marker({
-            position: pos,
-            map: map,
-          });
+          L.marker(pos).addTo(map)
+            .bindPopup('You are here!')
+            .openPopup();
         },
         function() {
-          handleLocationError(true, map.getCenter());
+          handleLocationError(true);
         }
       );
     } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, map.getCenter());
+      handleLocationError(false);
     }
   });
 }
 
 // Handle geolocation errors
-function handleLocationError(browserHasGeolocation, pos) {
+function handleLocationError(browserHasGeolocation) {
   const errorMessage = browserHasGeolocation
     ? "Error: The Geolocation service failed."
     : "Error: Your browser doesn't support geolocation.";
