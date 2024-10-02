@@ -1,35 +1,35 @@
 // Function to update the time and date for various world time zones
 function updateClocks() {
     const clocks = {
-      'new-york': 'America/New_York',
-      'london': 'Europe/London',
-      'tokyo': 'Asia/Tokyo',
-      'sydney': 'Australia/Sydney',
-      'cape-town': 'Africa/Johannesburg'
+        'new-york': 'America/New_York',
+        'london': 'Europe/London',
+        'tokyo': 'Asia/Tokyo',
+        'sydney': 'Australia/Sydney',
+        'cape-town': 'Africa/Johannesburg'
     };
   
     for (const [id, timeZone] of Object.entries(clocks)) {
-      const optionsDate = {
-        timeZone,
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      };
+        const optionsDate = {
+            timeZone,
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
   
-      const optionsTime = {
-        timeZone,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
+        const optionsTime = {
+            timeZone,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
   
-      const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
-      const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
+        const date = new Intl.DateTimeFormat('en-US', optionsDate).format(new Date());
+        const time = new Intl.DateTimeFormat('en-US', optionsTime).format(new Date());
   
-      document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
-      document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
+        document.querySelector(`#${id} .date`).textContent = `Date: ${date}`;
+        document.querySelector(`#${id} .time`).textContent = `Time: ${time}`;
     }
   }
   
@@ -45,52 +45,48 @@ function updateClocks() {
   
     // Add a tile layer (background) to the map
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
     }).addTo(map);
   
     // Button to locate user
     document.getElementById("locateButton").addEventListener("click", function() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            const pos = [position.coords.latitude, position.coords.longitude];
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    const pos = [position.coords.latitude, position.coords.longitude];
   
-            // Update map center to user's location
-            map.setView(pos, 10); // Zoom in closer
+                    // Update map center to user's location
+                    map.setView(pos, 10); // Zoom in closer
   
-            // Add marker for user location
-            L.marker(pos).addTo(map)
-              .bindPopup("You are here!")
-              .openPopup();
-          },
-          function() {
-            handleLocationError(true);
-          }
-        );
-      } else {
-        handleLocationError(false);
-      }
+                    // Add marker for user location
+                    L.marker(pos).addTo(map)
+                        .bindPopup("You are here!")
+                        .openPopup();
+                },
+                function() {
+                    handleLocationError(true);
+                }
+            );
+        } else {
+            handleLocationError(false);
+        }
     });
   }
   
   // Handle geolocation errors
   function handleLocationError(browserHasGeolocation) {
     const errorMessage = browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation.";
+        ? "Error: The Geolocation service failed."
+        : "Error: Your browser doesn't support geolocation.";
     console.error(errorMessage);
     alert(errorMessage);
   }
   
   // Initialize the map when the window loads
   window.onload = function() {
-    if (document.getElementById('map')) {
-      initMap();
-    }
-    if (document.getElementById('world-clocks')) {
-      updateClocks(); // Initial clock update
-      setInterval(updateClocks, 60000); // Update clocks every minute
-    }
+    initMap();
+    updateClocks(); // Initial clock update
+    setInterval(updateClocks, 60000); // Update clocks every minute
   };
   
