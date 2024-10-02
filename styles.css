@@ -80,7 +80,7 @@ section {
 
 /* Map Container */
 #map {
-  height: 500px; /* Expanded height */
+  height: 450px;
   width: 100%;
   margin-top: 20px;
   border: 2px solid #009688;
@@ -113,27 +113,25 @@ section {
   color: #00796b;
 }
 
-/* Footer Styling */
-footer {
-  margin-top: 20px;
-  font-size: 14px;
+/* Clock Text Styling */
+.clock p {
+  background-color: white; /* White background for text boxes */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  margin: 5px 0; /* Margin between date and time */
 }
 
 /* Contact Form Styling */
 #contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
-}
-
-#contact form {
-  width: 100%; /* Full width */
-  max-width: 600px; /* Maximum width for larger screens */
+  width: 100%;
+  max-width: 600px; /* Max width for contact form */
+  margin: 20px auto;
+  text-align: left; /* Align text to the left */
 }
 
 #contact label {
-  margin: 10px 0 5px;
+  display: block;
+  margin-top: 10px;
 }
 
 #contact input,
@@ -143,19 +141,24 @@ footer {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 15px;
 }
 
 #contact button {
   background-color: #009688;
   color: #fff;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  margin-top: 10px;
 }
 
 #contact button:hover {
   background-color: #00796b;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
 }
