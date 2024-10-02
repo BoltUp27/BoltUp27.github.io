@@ -26,60 +26,6 @@
     <h2>Find My Location</h2>
     <button id="locateButton">Get My Location</button>
     <div id="map" style="height: 450px; width: 100%; margin-top: 20px;"></div>
-
-    <h2>US Time Zones</h2>
-    <section id="world-clocks">
-      <div id="new-york" class="clock">
-        <h3>New York</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="chicago" class="clock">
-        <h3>Chicago</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="denver" class="clock">
-        <h3>Denver</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="los-angeles" class="clock">
-        <h3>Los Angeles</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="miami" class="clock">
-        <h3>Miami</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="houston" class="clock">
-        <h3>Houston</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="seattle" class="clock">
-        <h3>Seattle</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="boston" class="clock">
-        <h3>Boston</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="san-francisco" class="clock">
-        <h3>San Francisco</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-      <div id="phoenix" class="clock">
-        <h3>Phoenix</h3>
-        <div class="date"></div>
-        <div class="time"></div>
-      </div>
-    </section>
   </section>
 
   <footer>
@@ -87,7 +33,54 @@
   </footer>
 
   <script>
-    // Include your updated JavaScript here
+    // Function to initialize the map
+    function initMap() {
+      const map = L.map('map').setView([37.8, -96], 4); // Center of the US
+
+      // Add a tile layer (background) to the map
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      // Button to locate user
+      document.getElementById("locateButton").addEventListener("click", function() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                  function(position) {
+                      const pos = [position.coords.latitude, position.coords.longitude];
+
+                      // Update map center to user's location
+                      map.setView(pos, 10); // Zoom in closer
+
+                      // Add marker for user location
+                      L.marker(pos).addTo(map)
+                          .bindPopup("You are here!")
+                          .openPopup();
+                  },
+                  function() {
+                      handleLocationError(true);
+                  }
+              );
+          } else {
+              handleLocationError(false);
+          }
+      });
+    }
+
+    // Handle geolocation errors
+    function handleLocationError(browserHasGeolocation) {
+      const errorMessage = browserHasGeolocation
+          ? "Error: The Geolocation service failed."
+          : "Error: Your browser doesn't support geolocation.";
+      console.error(errorMessage);
+      alert(errorMessage);
+    }
+
+    // Initialize the map when the window loads
+    window.onload = function() {
+      initMap();
+    };
   </script>
 </body>
 </html>
