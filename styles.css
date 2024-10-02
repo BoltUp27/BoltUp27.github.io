@@ -96,7 +96,6 @@ section {
   margin: 20px 0;
 }
 
-/* Individual Clock Styling */
 .clock {
   border: 2px solid #009688;
   border-radius: 8px;
@@ -113,25 +112,23 @@ section {
   color: #00796b;
 }
 
-/* Clock Text Styling */
-.clock p {
-  background-color: white; /* White background for text boxes */
-  padding: 10px;
-  border-radius: 5px; /* Rounded corners */
-  margin: 5px 0; /* Margin between date and time */
-}
-
 /* Contact Form Styling */
 #contact {
   width: 100%;
-  max-width: 600px; /* Max width for contact form */
+  max-width: 600px; /* Keep the max width */
   margin: 20px auto;
   text-align: left; /* Align text to the left */
+  padding: 20px; /* Add padding around the form */
+  background-color: #ffffff; /* Background color for the form */
+  border: 2px solid #009688; /* Border to match theme */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 #contact label {
   display: block;
   margin-top: 10px;
+  font-weight: bold; /* Make labels bold */
 }
 
 #contact input,
@@ -141,6 +138,13 @@ section {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-top: 5px; /* Space above fields */
+  min-height: 40px; /* Set minimum height for inputs */
+}
+
+#contact textarea {
+  height: 150px; /* Ensure textarea is expanded */
+  resize: vertical; /* Allow vertical resizing */
 }
 
 #contact button {
