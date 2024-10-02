@@ -80,15 +80,82 @@ section {
 
 /* Map Container */
 #map {
-  height: 600px; /* Increased height */
-  width: 100%; /* Takes full width */
+  height: 500px; /* Expanded height */
+  width: 100%;
   margin-top: 20px;
   border: 2px solid #009688;
   border-radius: 5px;
+}
+
+/* World Clock Section */
+#world-clocks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping of clocks */
+  gap: 20px; /* Space between clocks */
+  margin: 20px 0;
+}
+
+/* Individual Clock Styling */
+.clock {
+  border: 2px solid #009688;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 150px;
+}
+
+.clock h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #00796b;
 }
 
 /* Footer Styling */
 footer {
   margin-top: 20px;
   font-size: 14px;
+}
+
+/* Contact Form Styling */
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#contact form {
+  width: 100%; /* Full width */
+  max-width: 600px; /* Maximum width for larger screens */
+}
+
+#contact label {
+  margin: 10px 0 5px;
+}
+
+#contact input,
+#contact select,
+#contact textarea {
+  width: 100%; /* Full width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#contact button {
+  background-color: #009688;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#contact button:hover {
+  background-color: #00796b;
 }
