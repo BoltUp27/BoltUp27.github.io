@@ -80,25 +80,11 @@ section {
 
 /* Map Container */
 #map {
-  height: 450px;
+  height: 80vh;  /* Expanded to 80% of the viewport height */
   width: 100%;
   margin-top: 20px;
   border: 2px solid #009688;
   border-radius: 5px;
-  position: relative; /* For fullscreen button */
-}
-
-/* Fullscreen Button Styling */
-.leaflet-control-fullscreen {
-  background-color: #009688; /* Button color */
-  border-radius: 5px;
-  color: white;
-  font-size: 18px;
-  padding: 10px;
-}
-
-.leaflet-control-fullscreen:hover {
-  background-color: #00796b; /* Hover effect */
 }
 
 /* World Clock Section */
