@@ -6,7 +6,9 @@
   <title>My Location Map</title>
   <link href="styles.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/leaflet.fullscreen.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Leaflet.fullscreen.min.js"></script>
 </head>
 <body>
   <header>
@@ -38,8 +40,7 @@
   <script>
     // Function to initialize the map
     function initMap() {
-      // Adjusted the center to shift the view downwards
-      const map = L.map('map').setView([33, -96], 4); // Lower latitude for downward shift
+      const map = L.map('map').setView([37.8, -96], 4); // Center of the US
 
       // Add a tile layer (background) to the map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -47,12 +48,8 @@
           attribution: '© OpenStreetMap'
       }).addTo(map);
 
-      // Optional: set bounds to extend more southwards
-      const bounds = L.latLngBounds(
-        [15, -130],  // Southwest corner
-        [50, -60]    // Northeast corner
-      );
-      map.fitBounds(bounds);
+      // Add fullscreen control
+      L.control.fullscreen().addTo(map);
 
       // Button to locate user
       document.getElementById("locateButton").addEventListener("click", function() {
