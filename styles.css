@@ -80,13 +80,28 @@ section {
 
 /* Map Container */
 #map {
-  height: 500px; /* Increased height for better visibility */
-  width: 90%;    /* Takes 90% of the parent width */
-  max-width: 1200px; /* Ensures it doesn’t get too large on big screens */
+  height: 450px; /* Default height */
+  width: 100%;   /* Full width */
   margin-top: 20px;
   border: 2px solid #009688;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for fullscreen */
+}
+
+/* Fullscreen Styles */
+body.leaflet-fullscreen-on {
+  overflow: hidden; /* Prevent scrolling when in fullscreen */
+  padding: 0; /* Remove body padding */
+  margin: 0; /* Remove margin */
+}
+
+body.leaflet-fullscreen-on #map {
+  height: 100vh; /* Set map to full height of the viewport when fullscreen */
+}
+
+/* If you want to make sure the fullscreen button is always on top of the map */
+.leaflet-control-fullscreen {
+  z-index: 1000; /* Ensure fullscreen button stays above the map */
 }
 
 /* World Clock Section */
@@ -167,20 +182,4 @@ section {
 footer {
   margin-top: 20px;
   font-size: 14px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  #map {
-    width: 100%; /* Full width on smaller screens */
-    height: 400px; /* Slightly reduced height on smaller screens */
-  }
-
-  header h1 {
-    font-size: 40px; /* Smaller header font for mobile */
-  }
-
-  #locateButton {
-    padding: 8px 16px; /* Smaller button padding for mobile */
-  }
 }
