@@ -7,8 +7,11 @@ body {
   color: #333;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
-  padding: 20px;
+  padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height of the viewport */
 }
 
 /* Header Styling */
@@ -59,6 +62,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1; /* Allow the section to expand */
   margin: 20px 0;
 }
 
@@ -80,11 +84,12 @@ section {
 
 /* Map Container */
 #map {
-  height: 80vh;  /* Expanded to 80% of the viewport height */
+  height: 70vh; /* Set map to occupy 70% of the viewport height */
   width: 100%;
   margin-top: 20px;
   border: 2px solid #009688;
   border-radius: 5px;
+  transition: height 0.3s ease; /* Smooth transition for height changes */
 }
 
 /* World Clock Section */
@@ -165,4 +170,5 @@ section {
 footer {
   margin-top: 20px;
   font-size: 14px;
+  text-align: center;
 }
