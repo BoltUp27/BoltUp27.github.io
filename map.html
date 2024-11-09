@@ -5,19 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Location Map</title>
   <link href="styles.css" rel="stylesheet" type="text/css">
-  
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  
-  <!-- Leaflet Fullscreen CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
-  
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  
-  <!-- Leaflet Fullscreen JS -->
-  <script src="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.min.js"></script>
-  
 </head>
 <body>
   <header>
@@ -49,41 +38,36 @@
   <script>
     // Function to initialize the map
     function initMap() {
-      const map = L.map('map', {
-        fullscreenControl: true,  // Enable fullscreen control
-        fullscreenControlOptions: {
-          position: 'topright'  // Optional: Position of the fullscreen button
-        }
-      }).setView([37.8, -96], 4); // Center of the US
+      const map = L.map('map').setView([37.8, -96], 4); // Center of the US
 
       // Add a tile layer (background) to the map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
+          maxZoom: 19,
+          attribution: '© OpenStreetMap'
       }).addTo(map);
 
       // Button to locate user
       document.getElementById("locateButton").addEventListener("click", function() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            function(position) {
-              const pos = [position.coords.latitude, position.coords.longitude];
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                  function(position) {
+                      const pos = [position.coords.latitude, position.coords.longitude];
 
-              // Update map center to user's location
-              map.setView(pos, 10); // Zoom in closer
+                      // Update map center to user's location
+                      map.setView(pos, 10); // Zoom in closer
 
-              // Add marker for user location
-              L.marker(pos).addTo(map)
-                .bindPopup("You are here!")
-                .openPopup();
-            },
-            function() {
-              handleLocationError(true);
-            }
-          );
-        } else {
-          handleLocationError(false);
-        }
+                      // Add marker for user location
+                      L.marker(pos).addTo(map)
+                          .bindPopup("You are here!")
+                          .openPopup();
+                  },
+                  function() {
+                      handleLocationError(true);
+                  }
+              );
+          } else {
+              handleLocationError(false);
+          }
       });
     }
 
