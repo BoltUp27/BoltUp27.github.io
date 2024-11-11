@@ -66,6 +66,22 @@ section {
   margin: 20px 0;
 }
 
+/* Media Container Styles */
+.media-container {
+  display: flex; /* Aligns images in a row */
+  justify-content: center; /* Centers images */
+  flex-wrap: wrap; /* Allows images to wrap to the next line if necessary */
+  gap: 20px; /* Space between images */
+}
+
+.media-container img {
+  width: 100%; /* Responsive width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 300px; /* Limit maximum width */
+  border-radius: 5px; /* Optional: add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+}
+
 /* Button Styling */
 #locateButton {
   background-color: #009688;
